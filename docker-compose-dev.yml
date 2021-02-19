@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./
+    image: ajurkiewicz/devops-task:1.0.0-dev
+    command: python web/manage.py run -h 0.0.0.0
+    ports:
+      - 5000:5000
+    env_file:
+      - ./.env.dev
+  db:
+    image: postgres:12-alpine
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=webappdb
+
+volumes:
+  postgres_data:

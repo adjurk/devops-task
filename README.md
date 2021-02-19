@@ -4,13 +4,13 @@ This demo Python project exposes two endpoints where only `/message` should be a
 
 ## Setup
 
-To run the project in production, use `docker-compose-prod.yml`.
+To run the project in production, use `docker-compose.yml`.
 
 ```bash
 $ git clone <this repo> && cd devops-task
-$ docker-compose -f docker-compose-prod.yml up --build -d
+$ docker-compose up --build -d
 # if it's your first time running the app, initialize the database
-$ docker-compose -f docker-compose-prod.yml exec app python manage.py create_db
+$ docker-compose exec app python manage.py create_db
 ```
 
 The app is now available under 0.0.0.0:8080. To test if the app works, try making a GET request to `/`:
@@ -47,5 +47,9 @@ $ curl -L -X POST localhost:8080/message -H 'Content-Type: application/json' -d 
 You can check the database by connecting directly to the container (PostgreSQL is not exposed outside Docker network) using docker-compose:
 
 ```bash
-docker-compose -f docker-compose-prod.yml exec db psql --username=postgres -d webappdb -c 'SELECT * FROM message;'
+$ docker-compose exec db psql --username=postgres -d webappdb -c 'SELECT * FROM message;'
+
+ id | message
+----+---------
+  1 | Test
 ```
