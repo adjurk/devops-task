@@ -1,5 +1,8 @@
 .env*
-
+!*.sample
+#!.env.db.sample
+#!.env.sample
+#!.env.dev.sample
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,flask,virtualenv
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,flask,virtualenv
