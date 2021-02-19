@@ -4,6 +4,7 @@ services:
   app:
     build:
       context: ./
+    image: ajurkiewicz/devops-task-app:1.0.0
     working_dir: /app/web
     command: gunicorn --bind 0.0.0.0:5000 manage:app
     expose:
@@ -22,6 +23,7 @@ services:
 
   nginx:
     build: ./services/nginx
+    image: ajurkiewicz/devops-task-nginx:1.0.0
     ports:
       - 8080:80
     depends_on:
