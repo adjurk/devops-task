@@ -25,4 +25,4 @@ def saveMessage():
         db.session.commit()
         return jsonify(result="Message saved successfully.")
       else:
-        return jsonify(result="Specified request payload was not in JSON format.")
+        return jsonify(result="Specified request payload was not in JSON format."), 400
