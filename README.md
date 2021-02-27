@@ -15,7 +15,7 @@ $ docker-compose up --build -d
 $ docker-compose exec app python manage.py create_db
 ```
 
-The app is now available under 0.0.0.0:8080. To test if the app works, try making a GET request to `/`:
+The app is now available under 0.0.0.0:8080. To test if it's running, try making a GET request to `/`:
 
 ```bash
 $ curl -I -X GET localhost:8080/
